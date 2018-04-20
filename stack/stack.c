@@ -58,5 +58,3 @@ void main(){
     printf("Decimal is %d\n", sum);
     getchar();
 }
-    
-
