@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<malloc.h>
+#include<string.h>
+void main(void)
+{
+	int length=100;
+	char *str, s1[]="hello,world!\n";
+	int i,n;
+
+	str=(char *)malloc(sizeof(char)*length);
+	strcpy(str,s1);
+	n=strlen(str);
+
+	printf("str=");
+	for(i=0;i<n;i++)
+		printf("%c",str[i]);
+	free(str);
+}

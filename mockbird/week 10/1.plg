@@ -1,0 +1,86 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 1 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Windows\TEMP\RSP5BB0.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/1.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\Project\Date Struct Project\week 10\1.c"
+]
+Creating command line "cl.exe @C:\Windows\TEMP\RSP5BB0.tmp" 
+<h3>Output Window</h3>
+Compiling...
+1.c
+f:\project\date struct project\week 10\bitree.h(3) : error C2061: syntax error : identifier 'DataType'
+f:\project\date struct project\week 10\bitree.h(6) : error C2059: syntax error : '}'
+f:\project\date struct project\week 10\bitree.h(8) : error C2143: syntax error : missing ')' before '*'
+f:\project\date struct project\week 10\bitree.h(8) : error C2143: syntax error : missing '{' before '*'
+f:\project\date struct project\week 10\bitree.h(8) : error C2059: syntax error : ')'
+f:\project\date struct project\week 10\bitree.h(9) : error C2054: expected '(' to follow 'root'
+f:\project\date struct project\week 10\bitree.h(15) : error C2143: syntax error : missing ')' before '*'
+f:\project\date struct project\week 10\bitree.h(15) : error C2143: syntax error : missing '{' before '*'
+f:\project\date struct project\week 10\bitree.h(15) : error C2059: syntax error : ')'
+f:\project\date struct project\week 10\bitree.h(16) : error C2054: expected '(' to follow 'root'
+f:\project\date struct project\week 10\bitree.h(26) : error C2143: syntax error : missing '{' before '*'
+f:\project\date struct project\week 10\bitree.h(26) : error C2143: syntax error : missing ')' before '*'
+f:\project\date struct project\week 10\bitree.h(26) : error C2143: syntax error : missing '{' before '*'
+f:\project\date struct project\week 10\bitree.h(26) : error C2146: syntax error : missing ';' before identifier 'x'
+f:\project\date struct project\week 10\bitree.h(26) : error C2059: syntax error : ')'
+f:\project\date struct project\week 10\bitree.h(28) : error C2054: expected '(' to follow 'x'
+f:\project\date struct project\week 10\bitree.h(43) : error C2143: syntax error : missing '{' before '*'
+f:\project\date struct project\week 10\bitree.h(43) : error C2143: syntax error : missing ')' before '*'
+f:\project\date struct project\week 10\bitree.h(43) : error C2143: syntax error : missing '{' before '*'
+f:\project\date struct project\week 10\bitree.h(43) : error C2146: syntax error : missing ';' before identifier 'x'
+f:\project\date struct project\week 10\bitree.h(43) : error C2059: syntax error : ')'
+f:\project\date struct project\week 10\bitree.h(44) : error C2054: expected '(' to follow 'x'
+f:\project\date struct project\week 10\bitree.h(59) : error C2143: syntax error : missing '{' before '*'
+f:\project\date struct project\week 10\bitree.h(59) : error C2143: syntax error : missing ')' before '*'
+f:\project\date struct project\week 10\bitree.h(59) : error C2143: syntax error : missing '{' before '*'
+f:\project\date struct project\week 10\bitree.h(59) : error C2059: syntax error : ')'
+f:\project\date struct project\week 10\bitree.h(60) : error C2054: expected '(' to follow 'curr'
+f:\project\date struct project\week 10\bitree.h(68) : error C2143: syntax error : missing '{' before '*'
+f:\project\date struct project\week 10\bitree.h(68) : error C2143: syntax error : missing ')' before '*'
+f:\project\date struct project\week 10\bitree.h(68) : error C2143: syntax error : missing '{' before '*'
+f:\project\date struct project\week 10\bitree.h(68) : error C2059: syntax error : ')'
+f:\project\date struct project\week 10\bitree.h(69) : error C2054: expected '(' to follow 'curr'
+f:\project\date struct project\week 10\bitree.h(76) : error C2143: syntax error : missing ')' before '*'
+f:\project\date struct project\week 10\bitree.h(76) : error C2143: syntax error : missing '{' before '*'
+f:\project\date struct project\week 10\bitree.h(76) : error C2059: syntax error : 'type'
+f:\project\date struct project\week 10\bitree.h(86) : error C2146: syntax error : missing ')' before identifier 'item'
+f:\project\date struct project\week 10\bitree.h(86) : error C2061: syntax error : identifier 'item'
+f:\project\date struct project\week 10\bitree.h(86) : error C2059: syntax error : ';'
+f:\project\date struct project\week 10\bitree.h(86) : error C2059: syntax error : ')'
+f:\project\date struct project\week 10\bitree.h(87) : error C2449: found '{' at file scope (missing function header?)
+f:\project\date struct project\week 10\bitree.h(89) : error C2059: syntax error : '}'
+F:\Project\Date Struct Project\week 10\1.c(11) : error C2143: syntax error : missing ')' before '*'
+F:\Project\Date Struct Project\week 10\1.c(11) : error C2143: syntax error : missing '{' before '*'
+F:\Project\Date Struct Project\week 10\1.c(11) : error C2059: syntax error : ')'
+F:\Project\Date Struct Project\week 10\1.c(12) : error C2040: 'root' : 'int *' differs in levels of indirection from 'int ** '
+F:\Project\Date Struct Project\week 10\1.c(12) : error C2054: expected '(' to follow 'root'
+F:\Project\Date Struct Project\week 10\1.c(27) : error C2065: 'BiTreeNode' : undeclared identifier
+F:\Project\Date Struct Project\week 10\1.c(27) : error C2297: '*' : illegal, right operand has type 'int ** '
+F:\Project\Date Struct Project\week 10\1.c(27) : error C2065: 'p' : undeclared identifier
+F:\Project\Date Struct Project\week 10\1.c(27) : error C2100: illegal indirection
+F:\Project\Date Struct Project\week 10\1.c(27) : error C2065: 'pp' : undeclared identifier
+F:\Project\Date Struct Project\week 10\1.c(27) : error C2100: illegal indirection
+F:\Project\Date Struct Project\week 10\1.c(28) : error C2143: syntax error : missing ';' before 'type'
+F:\Project\Date Struct Project\week 10\1.c(29) : warning C4013: 'Initiate' undefined; assuming extern returning int
+F:\Project\Date Struct Project\week 10\1.c(30) : warning C4013: 'InsertLeftNode' undefined; assuming extern returning int
+F:\Project\Date Struct Project\week 10\1.c(33) : warning C4013: 'InsertRightNode' undefined; assuming extern returning int
+F:\Project\Date Struct Project\week 10\1.c(34) : error C2223: left of '->leftChild' must point to struct/union
+F:\Project\Date Struct Project\week 10\1.c(38) : warning C4013: 'PreOrderByStack' undefined; assuming extern returning int
+F:\Project\Date Struct Project\week 10\1.c(38) : error C2223: left of '->leftChild' must point to struct/union
+F:\Project\Date Struct Project\week 10\1.c(39) : warning C4013: 'Destroy' undefined; assuming extern returning int
+Ö´ÐÐ cl.exe Ê±³ö´í.
+
+
+
+<h3>Results</h3>
+1.obj - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
