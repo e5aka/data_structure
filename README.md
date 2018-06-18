@@ -1,1 +1,8 @@
-Into the night
+Seven times have I dispised my soul
+The first time when I saw her beeking that she might attain height
+The second time when I saw her limping before the crippled
+The third time when she was given to choose between the hard and the easy, and she chose the easy
+The fourth time when she committed a wrong, and comforted herself that others also commit wrong
+The fifth time when she forbore for weakness, and attributed her patience to strength
+The sixth time when she dispised the ugliness of a face, and knew not that it was one of her own masks
+And the seventh time when she sang a song of praise, and deemed it a virtue
