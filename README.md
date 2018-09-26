@@ -1,5 +1,5 @@
 Seven times have I dispised my soul
-The first time when I saw her beeking that she might attain height
+The first time when I saw her being meek that she might attain height
 The second time when I saw her limping before the crippled
 The third time when she was given to choose between the hard and the easy, and she chose the easy
 The fourth time when she committed a wrong, and comforted herself that others also commit wrong
