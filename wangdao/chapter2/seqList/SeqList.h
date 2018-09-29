@@ -25,21 +25,27 @@ int listLength(SqList L)
 	return L.length;
 }
 
-bool listInsert(SqList &L, int i, ElemType e)
+bool listInsert(SqList *L, int i, ElemType e)
 {
     int j;
-    if(i<1 || i>L.length+1)
+    if(i<1 || i>L->length+1)    //判断范围
         return false;
-    if(L.length >= MaxSize)
+    if(L->length >= MaxSize)    //数组长度已满
         return false;
-    for(j=L.length;j>=i;j--)
-        L.data[j] = L.data[j-1];
-    L.data[i-1] = e;
-    L.length++;
+    for(j=L->length;j>=i;j--)
+        L->data[j] = L->data[j-1];
+    L->data[i-1] = e;
+    L->length++;
     return true;
 }
 
-int listDelete(SqList &L, int i, ElemType &e)
+bool listDelete(SqList *L, int i, ElemType *e)
 {
-    return 1;
+    if(i<1 || i>L->length)  //判断范围
+        return false;
+    *e = L->data[i-1];
+    for(int j=i;j<L->length;j++)
+        L->data[j-1] = L->data[j];
+    L->length--;
+    return true;
 }
