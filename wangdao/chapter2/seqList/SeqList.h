@@ -11,13 +11,27 @@ void initList(SqList *L)
 	L->length=0;
 }
 
-int locateElem(SqList L, ElemType e)
+int locateElem(SqList L, ElemType e)    //按值查找
 {
     int i;
     for(i=0;i<L.length;i++)
         if(L.data[i] == e)
             return i+1;
     return 0;
+}
+
+ElemType getElem(SqList L, int i)       //按位查找
+{
+    if(i<1 || i>L.length)
+        return 0;
+    return L.data[i-1];
+}
+
+bool empty(SqList *L)   //判空
+{
+    if(L->length == 0)
+        return true;
+    return false;
 }
 
 int listLength(SqList L)
@@ -48,4 +62,14 @@ bool listDelete(SqList *L, int i, ElemType *e)
         L->data[j-1] = L->data[j];
     L->length--;
     return true;
+}
+
+void destroyList(SqList *L)     //销毁线性表
+{
+    L->length = 0;
+}
+
+void printList(SqList L){
+    for(int i=0;i<L.length;i++)
+        printf("%d ",L.data[i]);
 }
