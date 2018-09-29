@@ -1,78 +1,45 @@
+#include <stdbool.h>
+
 typedef struct
 {
-	ElemType list[MaxSize];
+	ElemType data[MaxSize];
 	int length;
-}SeqList;
+}SqList;
 
-
-void ListInitiate (SeqList *L)
+void initList(SqList *L)
 {
 	L->length=0;
 }
 
-int ListLength (SeqList L)
+int locateElem(SqList L, ElemType e)
 {
-	return L.size;
+    int i;
+    for(i=0;i<L.length;i++)
+        if(L.data[i] == e)
+            return i+1;
+    return 0;
 }
 
-int ListInsert (SeqList *L, int i,DataType x)
+int listLength(SqList L)
 {
-	int j;
-	if(L->size>=MaxSize)
-		{
-			printf("顺序表已满无法插入！\n");
-			return 0;
-		}
-	else if(i<0||i>L->size)
-		{
-			printf("参数i不合法！\n");
-			return 0;
-		}
-
-	else 
-		{
-			for(j=L->size;j>i;j--)
-			L->list[j]=L->list[j-1];
-			
-			L->list[i]=x;
-			L->size ++;
-			return 1;
-		}
+	return L.length;
 }
 
-int ListDelete(SeqList *L , int i, DataType *x)
+bool listInsert(SqList &L, int i, ElemType e)
 {
-	int j;
-	if(L->size<=0)
-		{
-		printf("顺序表已空无数据元素可删！\n");
-		return 0;
-		}
-	else if(i<0||i>L->size-1)
-		{
-		printf("参数i不合法!\n");
-		return 0;
-		}
-	else
-		{
-		*x=L->list[i];
-		for(j=i+1;j<=L->size-1;j++)
-		L->list[j-1]=L->list[j];
-		L->size--;
-		return 1;
-		}
+    int j;
+    if(i<1 || i>L.length+1)
+        return false;
+    if(L.length >= MaxSize)
+        return false;
+    for(j=L.length;j>=i;j--)
+        L.data[j] = L.data[j-1];
+    L.data[i-1] = e;
+    L.length++;
+    return true;
 }
 
-int ListGet(SeqList L, int i,DataType *x)
+int listDelete(SqList &L, int i, ElemType &e)
 {
-	if(i<0||i>L.size-1)
-		{
-		printf("参数i不合法!\n");
-		return 0;
-		}
-	else
-		{
-		*x=L.list[i];
-		return 1;
-		}
+    return 1;
 }
