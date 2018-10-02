@@ -75,8 +75,8 @@ void destroyList(SqList *L)     //销毁线性表
     L->length = 0;
 }
 
-void printList(SqList L){
+void traverseList(SqList L){
     for(int i=0;i<L.length;i++)
-        printf("%d ",L.data[i]);
+        printf("%4d",L.data[i]);
     putchar('\n');
 }

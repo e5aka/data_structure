@@ -5,11 +5,14 @@
 #define List_InitSize 100
 #define ListIncrement 10
 
+#include <stdbool.h>
+
+typedef int ElemType;
 typedef struct{//此时可以省去结构标记
     int *elem;//线性表基址
     int length;//当前表长
     int listsize;//当前为线性表分配的存储容量
-} SqList;//为结构起的别名SqList
+}SqList;//为结构起的别名SqList
 
 //线性表常用的有13个操作，归为4类
 
@@ -18,9 +21,9 @@ typedef struct{//此时可以省去结构标记
 /************************************************************************/
 
 //1、线性表的初始化，构造一个空的线性表
-int InitList(SqList *L)//因为要改变线性表，必须用指针做参数
+int initList(SqList *L)//因为要改变线性表，必须用指针做参数
 {   
-    L->elem = (int *)malloc(List_InitSize*sizeof(int));
+    L->elem = (ElemType*)malloc(List_InitSize*sizeof(ElemType));
 
     if(!L->elem){
         printf("线性表分配失败");
@@ -37,7 +40,7 @@ int InitList(SqList *L)//因为要改变线性表，必须用指针做参数
 /************************************************************************/
 
 //2、销毁，释放内存操作
-void Destory(SqList *L)//直接把内存释放的操作！类似与free（）
+void destory(SqList *L)//直接把内存释放的操作！类似与free（）
 {
     if(L->elem){
         free(L->elem);
@@ -50,44 +53,111 @@ void Destory(SqList *L)//直接把内存释放的操作！类似与free（）
 /************************************************************************/
 
 //3、判空操作,若线性表已经存在，为空白则返回true，否则返回false
-void ListEmpty(SqList L);
+bool listEmpty(SqList L)
+{
+    if(L.elem){
+        if(0 == L.length)
+            return true;
+        return false;
+    }else
+        putf("此表不存在");
+    return false;
+}
 
 //4、求长度操作，若线性表已经存在，则返回表L中元素个数
-int ListLength(SqList L);
+int listLength(SqList L)
+{
+    if(L.elem)
+        return L.length;
+    return 0;
+}
 
 //5、定位操作：线性表 L 已存在，返回 L 中第 1 个与 e 满足相等关系的元素的位序。
 //若这种元素不存在，则返回 0。 
-int LocateElem(SqList L, int e);
+int locateElem(SqList L, ElemType e)
+{
+    int i;
+    for(i=0;i<L.length;i++)
+        if(e == L.length[i-1])
+            return i+1;
+    return 0;  //未匹配到元素
+}
 
 //6、求元素后继,初始条件：线性表 L 已存在。若 cur_e是 L 中的元素，则打印它的后继
 //否则操作失败
-void NextElem(SqList L, int cur_e);
+int nextElem(SqList L, ElemType cur_e)
+{
+    int i = locateElem(L, cur_e);
+    if(i){
+        if(i == L.length){
+            return 0;
+        }else{
+            return i+1;     //返回后继在序列中的位数
+        }
+    }
+    puts("无此元素");
+    return 0;
+}
 
 //7、得到指定的元素值，线性表 L 已存在
 //1≤i≤表长。用 e 返回 L 中第 i 个元素的值。 
-int GetElem(SqList L, int i, int e);
+void getElem(SqList L, int i, ElemType *e)
+{
+    if(i<1 || i>L.length)
+        return false;
+    *e = L.elem[i-1];
+    return true;
+}
 
 //8、求元素前驱，线性表L已经存在，若cur_e是L的数据元素，则返回前驱
 //否则操作失败
-void PriorElem(SqList L, int cur_e);
+void priorElem(SqList L, ElemType cur_e)
+{
+    int i = locateElem(L, cur_e);
+    if(i){
+        if(i == L.length){
+            return 0;
+        }else{
+            return i-1;     //返回后继在序列中的位数
+        }
+    }
+    puts("无此元素");
+    return 0;
+}
 
 //9、遍历表中元素，线性表 L 已存在，打印出表中每个元素
 //无法遍历，则操作失败。 
-void ListTraverse(SqList L);
+void traverseList(SqList L)
+{
+    int i;
+    for(i=0;i<L.length;i++){
+        prints("%4d", L.elem[i]);   //当ElemType为int时
+    }
+    putchar('\n');
+}
 
 /************************************************************************/
 /* 第四类：加工型操作                                                   */
 /************************************************************************/
 
 //10、把表清空（不释放内存）：线性表 L 已存在，将 L 重置为空表。 
-void ClearList(SqList *L);
+void clearList(SqList *L)
+{
+    if(L->elem)
+        L->length = 0;
+}
 
 //11、给表某元素赋值，线性表 L 已存在
 //L 中第 i 个元素赋值为 e 的值。 
-void PutElem(SqList *L, int i, int e );
+void putElem(SqList *L, int i, ElemType e)
+{
+    if(i<1 || i>L->length)
+        puts("超出表范围");
+    L->elem[i-1] = e;
+}
 
 //12、插入操作，线性表 L 已存在，在 L 的第 i 个元素之前插入新的元素 e，L 的长度增 1。 
-void ListInsert(SqList *L, int i, int e)
+void listInsert(SqList *L, int i, int e)
 {
     SqList *NL;
     int *j, *k;
@@ -111,7 +181,7 @@ void ListInsert(SqList *L, int i, int e)
 }
 
 //13、删除操作，表 L 已存在且非空，。删除 L 的第 i 个元素，并用 e 返回其值，长度减 1。 
-void ListDelete(SqList *L, int i, int *e )
+void listDelete(SqList *L, int i, int *e )
 {
     int *p;
 
