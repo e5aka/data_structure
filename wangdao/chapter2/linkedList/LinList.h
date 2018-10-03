@@ -1,10 +1,28 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef struct Node{
     ElemType elem;
     struct Node *next;
-}LNode, *LinkList;
+}LNode;
+typedef struct Node *LinkList;
+
+//10.判断为空否
+bool listEmpty(LinkList L){
+    if(L->next == NULL)
+        return true;
+    else
+        return false;
+}
+
+//0.初始化
+void initList(LinkList *L){
+    *L = (LNode*)malloc(sizeof(LNode));
+    if(L == NULL)
+        exit(0);
+    (*L)->next = NULL;
+}
 
 //1.头插法创建单链表
 LinkList createList(LinkList L){
@@ -48,7 +66,9 @@ LinkList getElem(LinkList L, int i){
     int j = 1;
     LinkList p = L->next;
 
-    if(i==0 || i<1)
+    if(i==0)
+        return L;
+    if(i<1)
         return NULL;
     while(p && j<i){
         p = p->next;
@@ -66,19 +86,38 @@ LinkList locateElem(LinkList L, ElemType e){
     return p;
 }
 
+//4.1.按值查找表节点,返回列序
+int locatePos(LinkList L, ElemType e){
+    LinkList p = L->next;
+    int i = 1;
+
+    if(listEmpty(L))
+        return 0;
+    while(p && p->elem!=e){
+        p = p->next;
+        i++;
+    }
+    if(p)
+        return i;
+    else 
+        return 0;
+}
+
 //5.插入结点操作
-void listInsert(LinkList L, ElemType e, int i){
+void listInsert(LinkList L, int i, ElemType e){
     LinkList p, s;
 
     s = (LNode*)malloc(sizeof(LNode));
     s->elem = e;
     p = getElem(L, i-1);
-    s->next = p->next;
-    p->next = s;
+    if(p != NULL){
+        s->next = p->next;
+        p->next = s;
+    }
 }
 
-//6.删除结点
-void listDelete(LinkList L, ElemType *e, int i){
+//6.删除结点,按序号
+void listDelete(LinkList L, int i, ElemType *e){
     LinkList p, q;
 
     p = getElem(L, i-1);
@@ -112,3 +151,14 @@ void destroyList(LinkList L){
         free(q);
     }
 }
+
+//9.遍历链表,当ElemType为int时
+void traverseList(LinkList L){
+    LinkList p = L->next;
+    while(p != NULL){
+        printf("%4d", p->elem);
+        p = p->next;
+    }
+    putchar('\n');
+}
+
