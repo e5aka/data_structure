@@ -164,7 +164,7 @@ void listInsert(SqList *L, int i, int e)
 
     if(i<1 || i>L->length+1){
         puts("插入位置非法");
-    }else{
+    }else if(L->length >= L->listsize){
         NL->elem = (int *)realloc(L->elem, (L->listsize+ListIncrement)*sizeof(int));
         if(!NL->elem)
             exit(0);
@@ -172,7 +172,6 @@ void listInsert(SqList *L, int i, int e)
     }
 
     j = &(L->elem[i-1]);
-
     for(k=&(L->elem[L->length-1]);k>=j;k--){
         *(k+1) = *k;
     }
