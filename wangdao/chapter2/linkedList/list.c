@@ -28,14 +28,17 @@ void main(){
     delElem(A, B);
     printf("After A-B,A仍有%d个元素:", getLength(A));
     traverseList(A);
+
+    destroyList(B);
+
+    printf("END\n");
 }
 
 void delElem(LinkList A, LinkList B){
     int i, pos;
     ElemType e;
     LinkList p, q;
-
-    for(i=1;i<getLength(B);i++){
+for(i=1;i<getLength(B);i++){
         p = getElem(B, i);
         pos = locatePos(A, p->elem);
         if(pos>0)
