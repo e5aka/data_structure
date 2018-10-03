@@ -60,7 +60,7 @@ bool listEmpty(SqList L)
             return true;
         return false;
     }else
-        putf("此表不存在");
+        puts("此表不存在");
     return false;
 }
 
@@ -78,7 +78,7 @@ int locateElem(SqList L, ElemType e)
 {
     int i;
     for(i=0;i<L.length;i++)
-        if(e == L.length[i-1])
+        if(e == L.elem[i-1])
             return i+1;
     return 0;  //未匹配到元素
 }
@@ -101,7 +101,7 @@ int nextElem(SqList L, ElemType cur_e)
 
 //7、得到指定的元素值，线性表 L 已存在
 //1≤i≤表长。用 e 返回 L 中第 i 个元素的值。 
-void getElem(SqList L, int i, ElemType *e)
+bool getElem(SqList L, int i, ElemType *e)
 {
     if(i<1 || i>L.length)
         return false;
@@ -111,7 +111,7 @@ void getElem(SqList L, int i, ElemType *e)
 
 //8、求元素前驱，线性表L已经存在，若cur_e是L的数据元素，则返回前驱
 //否则操作失败
-void priorElem(SqList L, ElemType cur_e)
+int priorElem(SqList L, ElemType cur_e)
 {
     int i = locateElem(L, cur_e);
     if(i){
@@ -131,7 +131,7 @@ void traverseList(SqList L)
 {
     int i;
     for(i=0;i<L.length;i++){
-        prints("%4d", L.elem[i]);   //当ElemType为int时
+        printf("%4d", L.elem[i]);   //当ElemType为int时
     }
     putchar('\n');
 }
