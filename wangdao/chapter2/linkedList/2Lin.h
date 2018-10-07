@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node{
+typedef struct DNode{
     ElemType data;
-    struct Node *next;
+    struct DNode *prior, *next;
 }LNode;
-typedef struct Node *LinkList;
+typedef struct DNode *LinkList;
 
 //10.判断为空否
 bool listEmpty(LinkList L){
@@ -37,6 +37,7 @@ LinkList createList(LinkList L){
         s = (LNode*)malloc(sizeof(LNode));
         s->data = x;
         s->next = L->next;
+        s->prior = L;
         L->next = s;
         scanf("%d", &x);
     }
@@ -54,6 +55,7 @@ LinkList createList2(LinkList L){
         s = (LNode*)malloc(sizeof(LNode));
         s->data = x;
         r->next = s;
+        s->prior = r;
         r = s;
         scanf("%d", &x);
     }
@@ -112,7 +114,9 @@ void listInsert(LinkList L, int i, ElemType e){
     p = getElem(L, i-1);
     if(p != NULL){
         s->next = p->next;
+        p->next->prior = s;
         p->next = s;
+        s->prior = p;
     }
 }
 
@@ -124,6 +128,7 @@ void listDelete(LinkList L, int i, ElemType *e){
     q = p->next;
     *e = q->data;
     p->next = q->next;
+    q->next->prior = p;
     free(q);
 }
 

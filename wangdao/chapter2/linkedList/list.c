@@ -3,7 +3,7 @@ typedef int ElemType;
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
-#include "LinList.h"
+#include "Lin2.h"
 
 void delElem(LinkList A, LinkList B);
 
@@ -13,6 +13,7 @@ void main(){
     ElemType b[] = {1,2,3,44,5,66,7,88};
     LinkList A, B, p;
 
+    printf("Devil may cry\n");
     initList(&A);
     for(i=1;i<=sizeof(a)/sizeof(a[0]);i++)
         listInsert(A, i, a[i-1]);
@@ -31,7 +32,7 @@ void main(){
 
     destroyList(B);
 
-    printf("END\n");
+    printf("Piece of cake\n");
 }
 
 void delElem(LinkList A, LinkList B){
@@ -40,7 +41,7 @@ void delElem(LinkList A, LinkList B){
     LinkList p, q;
 for(i=1;i<getLength(B);i++){
         p = getElem(B, i);
-        pos = locatePos(A, p->elem);
+        pos = locatePos(A, p->data);
         if(pos>0)
             listDelete(A, pos, &e);
     }
