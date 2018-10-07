@@ -1,20 +1,20 @@
-Seven times have I dispised my soul
+*Seven times have I dispised my soul
 
-The first time when I saw her being meek that she might attain height
+*The first time when I saw her being meek that she might attain height
 
-The second time when I saw her limping before the crippled
+*The second time when I saw her limping before the crippled
 
-The third time when she was given to choose between the hard and the easy, and she chose the easy
+*The third time when she was given to choose between the hard and the easy, and she chose the easy
 
-The fourth time when she committed a wrong, and comforted herself that others also commit wrong
+*The fourth time when she committed a wrong, and comforted herself that others also commit wrong
 
-The fifth time when she forbore for weakness, and attributed her patience to strength
+*The fifth time when she forbore for weakness, and attributed her patience to strength
 
-The sixth time when she dispised the ugliness of a face, and knew not that it was one of her own masks
+*The sixth time when she dispised the ugliness of a face, and knew not that it was one of her own masks
 
-And the seventh time when she sang a song of praise, and deemed it a virtue
+*And the seventh time when she sang a song of praise, and deemed it a virtue
 
 
-vi tips:
+>vi tips:
 
 1>. /search\c       --ignore cap
