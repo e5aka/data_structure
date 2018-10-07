@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "D_SqList.h"
+#include "SqList2.h"
 
 void delElem(SqList *A, SqList B);
 
@@ -15,7 +15,7 @@ int main(){
     initList(&B);
     for(i=1;i<=10;i++)
         listInsert(&A, i, i);
-    for(i=1,j=1;j<=6;i=i+2,j++)
+    for(i=1,j=1;j<=5;i=i+2,j++)
         listInsert(&B, j, i);
 
     printf("Seq A is:");
