@@ -3,7 +3,7 @@ typedef int ElemType;
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
-#include "Lin2.h"
+#include "2Lin.h"
 
 void delElem(LinkList A, LinkList B);
 
