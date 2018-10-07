@@ -6,3 +6,6 @@ The fourth time when she committed a wrong, and comforted herself that others al
 The fifth time when she forbore for weakness, and attributed her patience to strength
 The sixth time when she dispised the ugliness of a face, and knew not that it was one of her own masks
 And the seventh time when she sang a song of praise, and deemed it a virtue
+
+vi tips:
+1>. /search\c       --ignore cap
