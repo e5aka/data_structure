@@ -9,19 +9,23 @@ typedef struct{
 
 #include <stdbool.h>
 
+//1>.初始化队列
 void initQueue(LinkQueue *q){
-    q->front = q->rear = (QueuePtr)malloc(sizeof(QNode));   //Head Node
+    q->front = q->rear = (QueuePtr)malloc(sizeof(QNode));   //建立头节点
     if(!q->front)   exit(0);
     q->front->next = NULL;
 }
 
+//2>.判断队空否
 bool isEmpty(LinkQueue Q){
     if(Q.front == Q.rear)
+    //if(Q.rear->next == NULL)
         return true;
     else 
         return false;
 }
 
+//3>.入队操作
 bool enQueue(LinkQueue *q, ElemType e){
     QueuePtr p;
     p = (QueuePtr)malloc(sizeof(QNode));
@@ -33,21 +37,30 @@ bool enQueue(LinkQueue *q, ElemType e){
     return true;
 }
 
+//3>.出队操作
 bool deQueue(LinkQueue *q, ElemType *e){
     QueuePtr p;
     if(isEmpty(*q)) return false;
     p = q->front->next;
     *e = p->data;
     q->front->next = p->next;
-    if(q->rear == p)    
+    if(q->rear == p)        //若原队仅一个节点，删除后变空
         q->rear = q->front;
     free(p);
     return true;
 }
 
-//bool getHead(LinkQueue Q, ElemType *x){
-//    if(isEmpty(Q))
-//        return false;
-//    *x = 
-//    return true;
-//}
+bool getHead(LinkQueue Q, ElemType *x){
+    if(isEmpty(Q))
+        return false;
+    *x = Q.front->next->data; 
+    return true;
+}
+
+bool clearQueue(LinkQueue *Q){
+    while(Q->front != NULL){
+        Q->rear = Q->front->next;
+        free(Q->front);
+        Q->front = Q->rear;
+    }
+}
