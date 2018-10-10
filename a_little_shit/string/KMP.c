@@ -28,7 +28,7 @@ int countString(Sstring s){
         else
             return i;
     }
-    return 9;
+    return 0;
 }
 
 void main(){
