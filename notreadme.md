@@ -31,7 +31,7 @@
     
 >GDB
 
-1. layout src +lines/info win
+1. layout src +lines/info win/ctrl-x && ctrl-a : shut&&open
 
     set args = num
 
