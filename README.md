@@ -17,15 +17,15 @@
 
 >vi tips:
 
-1>. /search\c       --ignore cap
+1.  /search\c       --ignore cap
 
 >Git 
 
-1>. git pull强制覆盖本地文件
+1.  git pull强制覆盖本地文件
 
-git fetch --all
+    git fetch --all
 
-git reset --hard origin/master
+    git reset --hard origin/master
 
-git pull
+    git pull
     
