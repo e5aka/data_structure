@@ -29,3 +29,10 @@
 
     git pull
     
+>GDB
+
+1. layout src +lines/info win
+
+    set args = num
+
+    p array@lenth/see a stream of value in consecutive mem 
