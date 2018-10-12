@@ -1,12 +1,18 @@
 #define MaxSize 50
+#include <stdbool.h>
+#include <assert.h>
+
 typedef struct QNode{
     ElemType data[MaxSize];
     int front, rear;
 }SqQueue;
 typedef struct QNode *SCQueue; 
 
-#include <stdbool.h>
-#include <assert.h>
+void initQueue(SqQueue *Q);
+bool isEmpty(SqQueue Q);
+bool enQueue(SqQueue *Q, ElemType x);
+bool deQueue(SqQueue *Q, ElemType *x);
+bool getHead(SqQueue Q, ElemType *x);
 
 void initQueue(SqQueue *Q){
     Q->rear = Q->front = 0;

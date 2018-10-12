@@ -1,3 +1,5 @@
+#include <stdbool.h>
+
 typedef struct QNode{
     ElemType data;
     struct QNode *next;
@@ -7,7 +9,12 @@ typedef struct{
     QueuePtr rear;
 }LinkQueue;
 
-#include <stdbool.h>
+void initQueue(LinkQueue *q);
+bool isEmpty(LinkQueue Q);
+bool enQueue(LinkQueue *q, ElemType e);
+bool deQueue(LinkQueue *q, ElemType *e);
+bool getHead(LinkQueue Q, ElemType *x);
+bool clearQueue(LinkQueue *Q);
 
 //1>.初始化队列
 void initQueue(LinkQueue *q){
