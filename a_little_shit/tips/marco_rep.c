@@ -8,7 +8,9 @@ void main(){
     m = MIN(a+b,a*b);
     printf("The minimum is : ");
     PRT(m);
-    r = Result(a-b,a*b);
+    //r = Result(a-b,a*b);
+    //a-b*a*b
+    r = Result((a-b),(a*b));
     printf("The result is : ");
     PRT(r);
 }
