@@ -1,5 +1,4 @@
 #include <stdio.h>
-helllo
 
 void hello(void){
     fprintf(stderr,"hello\n");
