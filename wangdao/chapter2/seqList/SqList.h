@@ -1,3 +1,5 @@
+//typedef int ElemType;
+//#define MaxSize 99
 #include <stdbool.h>
 
 typedef struct
@@ -5,6 +7,16 @@ typedef struct
 	ElemType data[MaxSize];
 	int length;
 }SqList;
+
+void initList(SqList *L);
+int locateElem(SqList L, ElemType e);
+bool getElem(SqList L, int i, ElemType *e);
+bool isEmpty(SqList *L); 
+int getLength(SqList L);
+bool insList(SqList *L, int i, ElemType e);
+bool delList(SqList *L, int i, ElemType *e);
+void destroyList(SqList *L); 
+void traverseList(SqList L);
 
 void initList(SqList *L)
 {
@@ -31,20 +43,20 @@ bool getElem(SqList L, int i, ElemType *e)
 }
 
 //判空
-bool empty(SqList *L)   
+bool isEmpty(SqList *L)   
 {
     if(L->length == 0)
         return true;
     return false;
 }
 
-int listLength(SqList L)
+int getLength(SqList L)
 {
 	return L.length;
 }
 
 //按位置插入顺序表元素
-bool listInsert(SqList *L, int i, ElemType e)   
+bool insList(SqList *L, int i, ElemType e)   
 {
     int j;
     if(i<1 || i>L->length+1)    //插入位置非法
@@ -59,12 +71,13 @@ bool listInsert(SqList *L, int i, ElemType e)
 }
 
 //按位置删除顺序表元素,并将其赋值于e
-bool listDelete(SqList *L, int i, ElemType *e)  
+bool delList(SqList *L, int i, ElemType *e)  
 {
+    int j;
     if(i<1 || i>L->length)  //插入位置非法
         return false;
     *e = L->data[i-1];      //删除元素赋予e
-    for(int j=i;j<L->length;j++)    //前移
+    for(j=i;j<L->length;j++)    //前移
         L->data[j-1] = L->data[j];
     L->length--;
     return true;
@@ -75,8 +88,10 @@ void destroyList(SqList *L)     //销毁线性表
     L->length = 0;
 }
 
-void traverseList(SqList L){
-    for(int i=0;i<L.length;i++)
+void traverseList(SqList L)
+{
+    int i;
+    for(i=0;i<L.length;i++)
         printf("%4d",L.data[i]);
     putchar('\n');
 }

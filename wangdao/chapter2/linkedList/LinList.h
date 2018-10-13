@@ -1,3 +1,5 @@
+//typedef int ElemType;
+//#defind MaxSize 99
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,8 +10,21 @@ typedef struct Node{
 }LNode;
 typedef struct Node *LinkList;
 
+bool isEmpty(LinkList L);
+void initList(LinkList *L);
+LinkList createList(LinkList L);
+LinkList createList2(LinkList L);
+LinkList getElem(LinkList L, int i);
+LinkList locateElem(LinkList L, ElemType e);
+int locatePos(LinkList L, ElemType e);
+void insList(LinkList L, int i, ElemType e);
+void delList(LinkList L, int i, ElemType *e);
+int getLength(LinkList L);
+void destroyList(LinkList L);
+void traverseList(LinkList L);
+
 //10.判断为空否
-bool listEmpty(LinkList L){
+bool isEmpty(LinkList L){
     if(L->next == NULL)
         return true;
     else
@@ -91,7 +106,7 @@ int locatePos(LinkList L, ElemType e){
     LinkList p = L->next;
     int i = 1;
 
-    if(listEmpty(L))
+    if(isEmpty(L))
         return 0;
     while(p && p->data!=e){
         p = p->next;
@@ -104,7 +119,7 @@ int locatePos(LinkList L, ElemType e){
 }
 
 //5.插入结点操作
-void listInsert(LinkList L, int i, ElemType e){
+void insList(LinkList L, int i, ElemType e){
     LinkList p, s;
 
     s = (LNode*)malloc(sizeof(LNode));
@@ -117,7 +132,7 @@ void listInsert(LinkList L, int i, ElemType e){
 }
 
 //6.删除结点,按序号
-void listDelete(LinkList L, int i, ElemType *e){
+void delList(LinkList L, int i, ElemType *e){
     LinkList p, q;
 
     p = getElem(L, i-1);

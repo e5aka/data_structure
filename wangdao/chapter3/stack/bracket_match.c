@@ -29,32 +29,32 @@ void ExpIsCorrect(char exp[], int n)
 	for(i=0;i<n;i++) {
 		if((exp[i]=='(') || (exp[i]=='[') || (exp[i]=='{'))
 			stackPush(&myStack, exp[i]); 
-		else if(exp[i]==')' && !stackEmpty(myStack) && getTop(myStack,&c) && c=='(')
+		else if(exp[i]==')' && !isEmpty(myStack) && getTop(myStack,&c) && c=='(')
 			stackPop(&myStack, &c);
-		else if(exp[i]==')' && !stackEmpty(myStack) && getTop(myStack,&c) && c!='('){
+		else if(exp[i]==')' && !isEmpty(myStack) && getTop(myStack,&c) && c!='('){
             printf("左右括号配对次序不正确！\n");
             return;
 		} 
-		else if(exp[i]==']' && !stackEmpty(myStack) && getTop(myStack,&c) && c=='[')
+		else if(exp[i]==']' && !isEmpty(myStack) && getTop(myStack,&c) && c=='[')
 			stackPop(&myStack, &c);
-		else if(exp[i]==']' && !stackEmpty(myStack) && getTop(myStack,&c) && c!='['){
+		else if(exp[i]==']' && !isEmpty(myStack) && getTop(myStack,&c) && c!='['){
             printf("左右括号配对次序不正确！\n");
             return;
 		} 
-		else if(exp[i]=='}' && !stackEmpty(myStack) && getTop(myStack,&c) && c=='{')
+		else if(exp[i]=='}' && !isEmpty(myStack) && getTop(myStack,&c) && c=='{')
 			stackPop(&myStack, &c);
-		else if(exp[i]=='}' && !stackEmpty(myStack) && getTop(myStack,&c) && c!='{'){
+		else if(exp[i]=='}' && !isEmpty(myStack) && getTop(myStack,&c) && c!='{'){
             printf("左右括号配对次序不正确！\n");
             return;
 		} 
 		else if(((exp[i]==')') || (exp[i]==']') || (exp[i]=='}'))
-			&&stackEmpty(myStack)){
+			&&isEmpty(myStack)){
 			printf("右括号多于左括号！\n");
 			return;
 		}
 	}
 
-	if(!stackEmpty(myStack))
+	if(!isEmpty(myStack))
 		printf("左括号多于右括号！\n");
 	else 
 		printf("左右括号匹配正确！\n");

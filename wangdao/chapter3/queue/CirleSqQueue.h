@@ -1,3 +1,5 @@
+//#define MaxSize 10
+//typedef int ElemType
 #define MaxSize 50
 #include <stdbool.h>
 #include <assert.h>

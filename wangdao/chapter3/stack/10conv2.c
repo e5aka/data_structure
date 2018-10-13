@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
         stackPush(&mystack, i);
     }
 	printf("Out of stace queue:\n");
-	while(!stackEmpty(mystack)) 
+	while(!isEmpty(mystack)) 
 	{
 		stackPop(&mystack, &x);
 		printf("%d", x);

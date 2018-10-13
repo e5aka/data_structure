@@ -8,7 +8,7 @@ typedef struct {
 }SqStack;
 
 void initStack(SqStack *S);
-bool stackEmpty(SqStack S);
+bool isEmpty(SqStack S);
 bool stackPush(SqStack *S, ElemType x);
 bool stackPop(SqStack *S, ElemType *x);
 bool getTop(SqStack S, ElemType *d);
@@ -18,7 +18,7 @@ void initStack(SqStack *S)
 	S->top = -1;
 }
 
-bool stackEmpty(SqStack S) 
+bool isEmpty(SqStack S) 
 {
 	if(S.top == -1) 
         return true;

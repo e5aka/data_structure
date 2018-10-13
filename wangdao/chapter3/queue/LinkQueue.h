@@ -1,3 +1,5 @@
+//#define MaxSize 10
+//typedef int ElemType
 #include <stdbool.h>
 
 typedef struct QNode{

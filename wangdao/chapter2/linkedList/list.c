@@ -16,10 +16,10 @@ void main(){
     printf("Devil may cry\n");
     initList(&A);
     for(i=1;i<=sizeof(a)/sizeof(a[0]);i++)
-        listInsert(A, i, a[i-1]);
+        insList(A, i, a[i-1]);
     initList(&B);
     for(i=1;i<=sizeof(b)/sizeof(b[0]);i++)
-        listInsert(B, i, b[i-1]);
+        insList(B, i, b[i-1]);
 
     printf("A is :");
     traverseList(A);
@@ -43,6 +43,6 @@ for(i=1;i<getLength(B);i++){
         p = getElem(B, i);
         pos = locatePos(A, p->data);
         if(pos>0)
-            listDelete(A, pos, &e);
+            delList(A, pos, &e);
     }
 }
