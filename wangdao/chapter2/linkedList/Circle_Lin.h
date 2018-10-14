@@ -10,33 +10,33 @@ typedef struct Node{
 }LNode;
 typedef struct Node *LinkList;
 
-bool isEmpty(LinkList L);
-void initList(LinkList *L);
+bool isEmpty(LinkList L);   //diff
+void initList(LinkList *L); //diff
 LinkList createList(LinkList L);
 LinkList createList2(LinkList L);
 LinkList getElem(LinkList L, int i);
 LinkList locateElem(LinkList L, ElemType e);
 int locatePos(LinkList L, ElemType e);
-void insList(LinkList L, int i, ElemType e);
-void delList(LinkList L, int i, ElemType *e);
+void insList(LinkList L, int i, ElemType e);    //when rear diff
+void delList(LinkList L, int i, ElemType *e);   //when rear diff
 int getLength(LinkList L);
 void destroyList(LinkList L);
-void traverseList(LinkList L);
+void traverseList(LinkList L);  //Any node
 
 //10.判断为空否
 bool isEmpty(LinkList L){
-    if(L->next == NULL)
+    if(L->next == L)
         return true;
     else
         return false;
 }
 
 //0.初始化
-void initList(LinkList *L){
+void initList(LinkList *L){ //head node
     *L = (LNode*)malloc(sizeof(LNode));
     if(*L == NULL)
         exit(0);
-    (*L)->next = NULL;
+    (*L)->next = *L;
 }
 
 //1.头插法创建单链表
@@ -58,22 +58,21 @@ LinkList createList(LinkList L){
     return L;
 }
 
-//2.采用尾插法创建单链表
+//2.采用尾插法创建Circle单链表
 LinkList createList2(LinkList L){
-    int x;
+    ElemType x;
     L = (LNode*)malloc(sizeof(LNode));
     LinkList s, r = L;   //r为表尾指针
     
-    scanf("%d", &x);
-    while(x != 999){
+    while(scanf("%d", &x) != EOF){
         s = (LNode*)malloc(sizeof(LNode));
         s->data = x;
+        s->next = r->next;
         r->next = s;
         r = s;
-        scanf("%d", &x);
     }
-    r->next = NULL;
-    return L;
+    r->next = L;
+    return r;   //return rear node
 }
 
 //3.按序号查找结点值,取出带头指针的第i个位置的结点指针
@@ -85,7 +84,7 @@ LinkList getElem(LinkList L, int i){
         return L;
     if(i<1)
         return NULL;
-    while(p && j<i){
+    while(p->next != L && j<i){
         p = p->next;
         j++;
     }
@@ -96,7 +95,7 @@ LinkList getElem(LinkList L, int i){
 LinkList locateElem(LinkList L, ElemType e){
     LinkList p = L->next;
     
-    while(p!=NULL && p->data!=e)
+    while(p->next!=L && p->data!=e)
         p = p->next;
     return p;
 }
@@ -108,11 +107,11 @@ int locatePos(LinkList L, ElemType e){
 
     if(isEmpty(L))
         return 0;
-    while(p && p->data!=e){
+    while(p!=L && p->data!=e){  //hardcore
         p = p->next;
         i++;
     }
-    if(p)
+    if(p != L)
         return i;
     else 
         return 0;
@@ -122,6 +121,10 @@ int locatePos(LinkList L, ElemType e){
 void insList(LinkList L, int i, ElemType e){
     LinkList p, s;
 
+    if(i>getLength(L)+1 && i<0){
+        printf("ins Error\n");
+        return;
+    }
     s = (LNode*)malloc(sizeof(LNode));
     s->data = e;
     p = getElem(L, i-1);
@@ -147,7 +150,7 @@ int getLength(LinkList L){
     int i = 0;
     LinkList p = L->next;
 
-    while(p != NULL){
+    while(p != L){
         p = p->next;
         i++;
     }
@@ -160,7 +163,7 @@ void destroyList(LinkList L){
     LinkList p, q;
     p = L->next;
 
-    while(p != NULL){
+    while(p != L){
         q = p;
         p = p->next;
         free(q);
@@ -170,10 +173,9 @@ void destroyList(LinkList L){
 //9.遍历链表,当ElemType为int时
 void traverseList(LinkList L){
     LinkList p = L->next;
-    while(p != NULL){
+    while(p != L){
         printf("%4d", p->data);
         p = p->next;
     }
     putchar('\n');
 }
-

@@ -32,7 +32,7 @@ bool isEmpty(LinkList L){
 //0.初始化
 void initList(LinkList *L){
     *L = (LNode*)malloc(sizeof(LNode));
-    if(L == NULL)
+    if(*L == NULL)
         exit(0);
     (*L)->next = NULL;
 }

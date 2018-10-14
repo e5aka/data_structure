@@ -3,7 +3,8 @@ typedef int ElemType;
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
-#include "2Lin.h"
+#include "Circle_Lin.h"
+//#include "LinList.h"
 
 void delElem(LinkList A, LinkList B);
 
@@ -39,10 +40,12 @@ void delElem(LinkList A, LinkList B){
     int i, pos;
     ElemType e;
     LinkList p, q;
-for(i=1;i<getLength(B);i++){
+    for(i=1;i<=getLength(B);i++){
         p = getElem(B, i);
         pos = locatePos(A, p->data);
-        if(pos>0)
+        printf("pos = %d\n", pos);
+        if(pos>0){
             delList(A, pos, &e);
+        }
     }
 }
