@@ -36,3 +36,7 @@
     set args = num
 
     p array@lenth/see a stream of value in consecutive mem 
+
+>Linux
+
+1. find . -name a.out|xargs rm -rf
