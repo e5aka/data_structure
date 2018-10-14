@@ -89,7 +89,7 @@ void translateExp(char str[], char exp[]){
     int i=0, j=0;
 
     initStack(&S);
-    char = str[i++];
+    ch = str[i++];
     
     while(ch != '\0'){
         switch(ch){
@@ -129,9 +129,6 @@ void translateExp(char str[], char exp[]){
                 i--;
                 exp[j++] = e;
         }
-        exp[j] = '\0'
+        exp[j] = '\0';
     }
-}
-
-
 }
