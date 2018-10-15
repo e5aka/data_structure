@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "SqList2.h"
+#include "SqList_dyn.h"
 
 void delElem(SqList *A, SqList B);
 

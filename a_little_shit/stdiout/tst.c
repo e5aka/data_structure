@@ -46,6 +46,8 @@ void main(){
 
             //return char*
             printf("fgets input : ");
+            //ATTENTION!!
+            //If the arugement not enough, add to '\n' & '\0' at last
             p = fgets(str, 10, stdin);
             printf("fputs output : ");
             fputs(str, stdout);
@@ -54,6 +56,7 @@ void main(){
 
             printf("gets input : ");
             gets(str);
+            //add to '\0' at last
             printf("puts output : ");
             puts(str);
 

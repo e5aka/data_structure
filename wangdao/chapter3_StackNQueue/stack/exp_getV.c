@@ -40,7 +40,7 @@ float computeExp(char a[]){
     S.top = -1;
     
     while(a[i] != '\0'){
-        if(a[i]!=' ' && a[i]>='0' &&a[i]<='9'){
+        if(a[i]!=' ' && a[i]>='0' && a[i]<='9'){
             value = 0;
             while(a[i] != ' '){
                 value = 10*value+a[i]-'0';
@@ -52,29 +52,28 @@ float computeExp(char a[]){
                 case '+':
                     x1 = S.data[S.top--];   //stackPush
                     x2 = S.data[S.top--];
-                    result = x1+x2;
+                    result = x2+x1;
                     S.data[++S.top] = result;   //stackPop
                     break;
                 case '-':
                     x1 = S.data[S.top--];   //stackPush
                     x2 = S.data[S.top--];
-                    result = x1-x2;
+                    result = x2-x1;
                     S.data[++S.top] = result;   //stackPop
                     break;
                 case '*':
                     x1 = S.data[S.top--];   //stackPush
                     x2 = S.data[S.top--];
-                    result = x1*x2;
+                    result = x2*x1;
                     S.data[++S.top] = result;   //stackPop
                     break;
                 case '/':
                     x1 = S.data[S.top--];   //stackPush
                     x2 = S.data[S.top--];
-                    result = x1/x2;
+                    result = x2/x1;
                     S.data[++S.top] = result;   //stackPop
                     break;
             }
-            //i++;
         }
     }
     if(S.top != -1){

@@ -16,6 +16,8 @@ bool getTop(SqStack S, ElemType *d);
 void initStack(SqStack *S) 
 {
 	S->top = -1;    //not a *S
+    printf("The *S is %p", *S);
+    printf("The S is %p", S);
 }
 
 bool isEmpty(SqStack S) 
