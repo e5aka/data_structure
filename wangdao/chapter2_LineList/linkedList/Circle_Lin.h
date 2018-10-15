@@ -36,7 +36,9 @@ void initList(LinkList *L){ //head node
     *L = (LNode*)malloc(sizeof(LNode));
     if(*L == NULL)
         exit(0);
+    (*L)->data = -1;
     (*L)->next = *L;
+    //*L is a pointer
 }
 
 //1.头插法创建单链表
@@ -64,6 +66,7 @@ LinkList createList2(LinkList L){
     L = (LNode*)malloc(sizeof(LNode));
     LinkList s, r = L;   //r为表尾指针
     
+    r->next = L;
     while(scanf("%d", &x),x){
         puts("input again");
         s = (LNode*)malloc(sizeof(LNode));
@@ -72,18 +75,18 @@ LinkList createList2(LinkList L){
         r->next = s;
         r = s;
     }
-    r->next = L;
 
     return L;   //return rear node
 }
 
 //No head node
-LinkList createList_nh2(LinkList L){
+LinkList createList_nh2(){
     ElemType x;
-    //L = (LNode*)malloc(sizeof(LNode));
-    L = NULL;
-    LinkList s, r = L;   //r为表尾指针
+    LinkList L = (LNode*)malloc(sizeof(LNode));
+    L->data = 66;
+    LinkList s, r;
     
+    r = L;
     while(scanf("%d", &x),x){
         puts("input again");
         s = (LNode*)malloc(sizeof(LNode));

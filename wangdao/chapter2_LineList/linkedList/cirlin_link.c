@@ -16,16 +16,16 @@ void main(){
     int b[] = {4,5,6};
     
     puts("Create CirLinkList A:");
-    createList_nh2(A);
+    A = createList2(A);
     puts("Create CirLinkList B:");
-    createList_nh2(B);
+    B = createList2(B);
 //    initList(&A);
 //    for(i=1;i<=sizeof(a)/sizeof(a[0]);i++)
 //        insList(A, i, a[i-1]);
 //    initList(&B);
 //    for(i=1;i<=sizeof(b)/sizeof(b[0]);i++)
 //        insList(B, i, b[i-1]);
-    puts("Devil may cry");
+//    puts("Devil may cry");
     
     printf("List A is:");
     traverseList(A);
@@ -34,7 +34,7 @@ void main(){
 
     A = link(A, B);
     puts("The new list is :");
-    traverseList(A->next->next);
+    traverseList(A);
 }
 
 LinkList link(LinkList A, LinkList B){
