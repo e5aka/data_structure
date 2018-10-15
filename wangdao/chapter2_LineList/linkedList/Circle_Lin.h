@@ -64,7 +64,8 @@ LinkList createList2(LinkList L){
     L = (LNode*)malloc(sizeof(LNode));
     LinkList s, r = L;   //r为表尾指针
     
-    while(scanf("%d", &x) != EOF){
+    while(scanf("%d", &x),x){
+        puts("input again");
         s = (LNode*)malloc(sizeof(LNode));
         s->data = x;
         s->next = r->next;
@@ -72,7 +73,28 @@ LinkList createList2(LinkList L){
         r = s;
     }
     r->next = L;
-    return r;   //return rear node
+
+    return L;   //return rear node
+}
+
+//No head node
+LinkList createList_nh2(LinkList L){
+    ElemType x;
+    //L = (LNode*)malloc(sizeof(LNode));
+    L = NULL;
+    LinkList s, r = L;   //r为表尾指针
+    
+    while(scanf("%d", &x),x){
+        puts("input again");
+        s = (LNode*)malloc(sizeof(LNode));
+        s->data = x;
+        s->next = r->next;
+        r->next = s;
+        r = s;
+    }
+    r->next = L;
+
+    return L;   //return rear node
 }
 
 //3.按序号查找结点值,取出带头指针的第i个位置的结点指针

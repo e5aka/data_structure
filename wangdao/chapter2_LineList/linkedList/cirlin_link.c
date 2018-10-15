@@ -15,17 +15,16 @@ void main(){
     int a[] = {1,2,3};
     int b[] = {4,5,6};
     
-    puts("Create CirLinkList h1:");
-    //createList2(h1);
-    //createList2(h2);
-    initList(&A);
-    for(i=1;i<=sizeof(a)/sizeof(a[0]);i++)
-        insList(A, i, a[i-1]);
-    puts("Create CirLinkList h2:");
-    initList(&B);
-    for(i=1;i<=sizeof(b)/sizeof(b[0]);i++)
-        insList(B, i, b[i-1]);
- 
+    puts("Create CirLinkList A:");
+    createList_nh2(A);
+    puts("Create CirLinkList B:");
+    createList_nh2(B);
+//    initList(&A);
+//    for(i=1;i<=sizeof(a)/sizeof(a[0]);i++)
+//        insList(A, i, a[i-1]);
+//    initList(&B);
+//    for(i=1;i<=sizeof(b)/sizeof(b[0]);i++)
+//        insList(B, i, b[i-1]);
     puts("Devil may cry");
     
     printf("List A is:");

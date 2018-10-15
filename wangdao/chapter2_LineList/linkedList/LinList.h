@@ -31,7 +31,7 @@ bool isEmpty(LinkList L){
         return false;
 }
 
-//0.初始化
+//0.初始化,创建头节点
 void initList(LinkList *L){
     *L = (LNode*)malloc(sizeof(LNode));
     if(*L == NULL)

@@ -19,6 +19,8 @@
 
 1. /search\c       --ignore cap
 
+2. `. : move to last change
+
 >Git 
 
 1. git pull强制覆盖本地文件
