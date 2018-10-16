@@ -4,7 +4,8 @@ typedef int ElemType;
 #include <stdlib.h>
 #include <malloc.h>
 //#include "Circle_Lin.h"
-#include "LinList.h"
+//#include "LinList.h"
+#include "2Lin.h"
 
 void delElem(LinkList A, LinkList B);
 

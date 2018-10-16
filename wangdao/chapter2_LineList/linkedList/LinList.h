@@ -12,7 +12,7 @@ typedef struct Node *LinkList;
 
 bool isEmpty(LinkList L);
 void initList(LinkList *L);
-LinkList createList(LinkList L);
+LinkList createList(LinkList *L);
 LinkList createList2(LinkList *L);
 LinkList getElem(LinkList L, int i);
 LinkList locateElem(LinkList L, ElemType e);
@@ -40,22 +40,23 @@ void initList(LinkList *L){
 }
 
 //1.头插法创建单链表
-LinkList createList(LinkList L){
+LinkList createList(LinkList *L){
+//2 B tested!!!
     LinkList s;
     int x;
 
-    L = (LNode*)malloc(sizeof(LNode));  //Head Node
-    L->next = NULL;
+    *L = (LNode*)malloc(sizeof(LNode));  //Head Node
+    (*L)->next = NULL;
 
     scanf("%d", &x);
-    while(x != 999){
+    while(x != 0){
         s = (LNode*)malloc(sizeof(LNode));
         s->data = x;
-        s->next = L->next;
-        L->next = s;
+        s->next = (*L)->next;
+        (*L)->next = s;
         scanf("%d", &x);
     }
-    return L;
+    return *L;
 }
 
 //2.采用尾插法创建单链表

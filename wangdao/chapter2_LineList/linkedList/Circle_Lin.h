@@ -44,7 +44,7 @@ void initList(LinkList *L){ //head node
 
 //1.头插法创建单链表
 LinkList createList(LinkList L){
-//ERRROOOOOOORRR!!!!!!
+//2BS!!
     LinkList s;
     int x;
 
@@ -102,7 +102,7 @@ LinkList createList2_nh(LinkList *L){
     }
     r->next = *L;
 
-    return *L;   //return rear node
+    return r;   //return rear node
 }
 
 //3.按序号查找结点值,取出带头指针的第i个位置的结点指针
