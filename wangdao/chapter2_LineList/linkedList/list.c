@@ -15,12 +15,16 @@ void main(){
     LinkList A, B, p;
 
     printf("Devil may cry\n");
-    initList(&A);
-    for(i=1;i<=sizeof(a)/sizeof(a[0]);i++)
-        insList(A, i, a[i-1]);
-    initList(&B);
-    for(i=1;i<=sizeof(b)/sizeof(b[0]);i++)
-        insList(B, i, b[i-1]);
+    //initList(&A);
+    //for(i=1;i<=sizeof(a)/sizeof(a[0]);i++)
+    //    insList(A, i, a[i-1]);
+    //initList(&B);
+    //for(i=1;i<=sizeof(b)/sizeof(b[0]);i++)
+    //    insList(B, i, b[i-1]);
+    printf("Create A:");
+    createList2(&A);
+    printf("Create B:");
+    createList2(&B);
 
     printf("A is :");
     traverseList(A);

@@ -13,7 +13,7 @@ typedef struct Node *LinkList;
 bool isEmpty(LinkList L);
 void initList(LinkList *L);
 LinkList createList(LinkList L);
-LinkList createList2(LinkList L);
+LinkList createList2(LinkList *L);
 LinkList getElem(LinkList L, int i);
 LinkList locateElem(LinkList L, ElemType e);
 int locatePos(LinkList L, ElemType e);
@@ -59,13 +59,15 @@ LinkList createList(LinkList L){
 }
 
 //2.采用尾插法创建单链表
-LinkList createList2(LinkList L){
+LinkList createList2(LinkList *L){
     int x;
-    L = (LNode*)malloc(sizeof(LNode));
-    LinkList s, r = L;   //r为表尾指针
+    *L = (LNode*)malloc(sizeof(LNode));
+    (*L)->data = -1;
+    LinkList s, r = *L;   //r为表尾指针
     
+    printf("input :");
     scanf("%d", &x);
-    while(x != 999){
+    while(x != 0){
         s = (LNode*)malloc(sizeof(LNode));
         s->data = x;
         r->next = s;
@@ -73,7 +75,7 @@ LinkList createList2(LinkList L){
         scanf("%d", &x);
     }
     r->next = NULL;
-    return L;
+    return *L;
 }
 
 //3.按序号查找结点值,取出带头指针的第i个位置的结点指针

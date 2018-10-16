@@ -13,7 +13,8 @@ typedef struct Node *LinkList;
 bool isEmpty(LinkList L);   //diff
 void initList(LinkList *L); //diff
 LinkList createList(LinkList L);
-LinkList createList2(LinkList L);
+LinkList createList2(LinkList *L);
+LinkList createList2_nh(LinkList *L);
 LinkList getElem(LinkList L, int i);
 LinkList locateElem(LinkList L, ElemType e);
 int locatePos(LinkList L, ElemType e);
@@ -43,6 +44,7 @@ void initList(LinkList *L){ //head node
 
 //1.头插法创建单链表
 LinkList createList(LinkList L){
+//ERRROOOOOOORRR!!!!!!
     LinkList s;
     int x;
 
@@ -59,14 +61,14 @@ LinkList createList(LinkList L){
     }
     return L;
 }
-
-//2.采用尾插法创建Circle单链表
-LinkList createList2(LinkList L){
+//2.采用尾插法创建Circle单链表 
+LinkList createList2(LinkList *L){
     ElemType x;
-    L = (LNode*)malloc(sizeof(LNode));
-    LinkList s, r = L;   //r为表尾指针
+    *L = (LNode*)malloc(sizeof(LNode));
+    (*L)->next = NULL;
+    (*L)->data = 99;
+    LinkList s, r = *L;   //r为表尾指针
     
-    r->next = L;
     while(scanf("%d", &x),x){
         puts("input again");
         s = (LNode*)malloc(sizeof(LNode));
@@ -75,18 +77,21 @@ LinkList createList2(LinkList L){
         r->next = s;
         r = s;
     }
+    r->next = *L;
 
-    return L;   //return rear node
+    return *L;   //return rear node
 }
 
-//No head node
-LinkList createList_nh2(){
+//rear ins create,No head node
+LinkList createList2_nh(LinkList *L){
     ElemType x;
-    LinkList L = (LNode*)malloc(sizeof(LNode));
-    L->data = 66;
+    *L = (LNode*)malloc(sizeof(LNode));
+    puts("The head:");
+    scanf("%d", &(*L)->data);
+    puts("input head");
     LinkList s, r;
     
-    r = L;
+    r = *L;
     while(scanf("%d", &x),x){
         puts("input again");
         s = (LNode*)malloc(sizeof(LNode));
@@ -95,9 +100,9 @@ LinkList createList_nh2(){
         r->next = s;
         r = s;
     }
-    r->next = L;
+    r->next = *L;
 
-    return L;   //return rear node
+    return *L;   //return rear node
 }
 
 //3.按序号查找结点值,取出带头指针的第i个位置的结点指针
@@ -198,6 +203,7 @@ void destroyList(LinkList L){
 //9.遍历链表,当ElemType为int时
 void traverseList(LinkList L){
     LinkList p = L->next;
+    printf("%4d", L->data);
     while(p != L){
         printf("%4d", p->data);
         p = p->next;

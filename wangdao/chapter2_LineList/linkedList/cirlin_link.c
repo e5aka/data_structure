@@ -14,27 +14,32 @@ void main(){
     int i;
     int a[] = {1,2,3};
     int b[] = {4,5,6};
+
+    printf("The \\n = %d\n", '\n');
     
     puts("Create CirLinkList A:");
-    A = createList2(A);
-    puts("Create CirLinkList B:");
-    B = createList2(B);
+    createList2_nh(&A);
+    printf("A->data = %d\n", A->data);
+    printf("List A is:");
+    traverseList(A);
+
 //    initList(&A);
 //    for(i=1;i<=sizeof(a)/sizeof(a[0]);i++)
 //        insList(A, i, a[i-1]);
 //    initList(&B);
 //    for(i=1;i<=sizeof(b)/sizeof(b[0]);i++)
 //        insList(B, i, b[i-1]);
-//    puts("Devil may cry");
+    puts("Devil may cry");
     
-    printf("List A is:");
-    traverseList(A);
+    puts("Create CirLinkList B:");
+    createList2_nh(&B);
+    printf("B->data = %d\n", B->data);
     printf("List B is:");
     traverseList(B);
 
     A = link(A, B);
     puts("The new list is :");
-    traverseList(A);
+    traverseList(A->next);
 }
 
 LinkList link(LinkList A, LinkList B){
