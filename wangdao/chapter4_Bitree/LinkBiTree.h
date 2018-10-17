@@ -210,7 +210,7 @@ void postOrderNoRecur(BiTree T){
             p = p->lc;
         }
         if(top>0){
-            p = stack[top--];
+            p = stack[top-1];
             if(p->rc==NULL || p->rc==q){
                 printf("%2c", p->data);
                 q = p;
