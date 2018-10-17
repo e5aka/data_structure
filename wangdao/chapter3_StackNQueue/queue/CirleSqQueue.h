@@ -21,6 +21,7 @@ void initQueue(SqQueue *Q){
 }
 
 bool isEmpty(SqQueue Q){
+    //full queue:(Q.rear+1)%MaxSize == Q.front
     if(Q.rear == Q.front)
         return true;
     return false;
