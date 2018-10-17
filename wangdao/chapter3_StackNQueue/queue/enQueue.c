@@ -2,13 +2,13 @@ typedef char ElemType;
 
 #include <stdio.h>
 #include <stdlib.h>
-//#include "LinkQueue.h"
-#include "CirleSqQueue.h"
+#include "LinkQueue.h"
+//#include "CirleSqQueue.h"
 
 int main(int argc, char *argv[])
 {
     ElemType e;
-    SqQueue q;
+    LinkQueue q;
 
     initQueue(&q);
     printf("Please input a string into a queue\n");

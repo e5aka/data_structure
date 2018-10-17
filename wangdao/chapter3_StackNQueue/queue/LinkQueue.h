@@ -5,7 +5,7 @@
 typedef struct QNode{
     ElemType data;
     struct QNode *next;
-}QNode, *QueuePtr;
+}*QueuePtr,QNode;
 typedef struct{
     QueuePtr front;
     QueuePtr rear;
@@ -16,7 +16,7 @@ bool isEmpty(LinkQueue Q);
 bool enQueue(LinkQueue *q, ElemType e);
 bool deQueue(LinkQueue *q, ElemType *e);
 bool getHead(LinkQueue Q, ElemType *x);
-bool clearQueue(LinkQueue *Q);
+bool destroy(LinkQueue *Q);
 
 //1>.初始化队列
 void initQueue(LinkQueue *q){
@@ -66,7 +66,7 @@ bool getHead(LinkQueue Q, ElemType *x){
     return true;
 }
 
-bool clearQueue(LinkQueue *Q){
+bool destroy(LinkQueue *Q){
     while(Q->front != NULL){
         Q->rear = Q->front->next;
         free(Q->front);

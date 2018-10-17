@@ -20,7 +20,7 @@ int locatePos(LinkList L, ElemType e);
 void insList(LinkList L, int i, ElemType e);
 void delList(LinkList L, int i, ElemType *e);
 int getLength(LinkList L);
-void destroyList(LinkList L);
+void destroy(LinkList L);   //not *L ?
 void traverseList(LinkList L);
 
 //10.判断为空否
@@ -159,7 +159,7 @@ int getLength(LinkList L){
 }
 
 //8.销毁链表
-void destroyList(LinkList L){
+void destroy(LinkList L){
     LinkList p, q;
     p = L->next;
 

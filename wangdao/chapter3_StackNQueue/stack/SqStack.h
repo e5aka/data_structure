@@ -12,6 +12,7 @@ bool isEmpty(SqStack S);
 bool stackPush(SqStack *S, ElemType x);
 bool stackPop(SqStack *S, ElemType *x);
 bool getTop(SqStack S, ElemType *d);
+void destroy(SqStack *S);//2bsovling
 
 void initStack(SqStack *S) 
 {
