@@ -108,7 +108,7 @@ ElemType getLeftC(BiTree T, ElemType e){
         if(p && p->lc)
             return p->lc->data;
     }
-    return;
+    return -1;
 }
 
 ElemType getRightC(BiTree T, ElemType e){
@@ -118,7 +118,7 @@ ElemType getRightC(BiTree T, ElemType e){
         if(p && p->rc)
             return p->rc->data;
     }
-    return;
+    return -1;
 }
 
 bool delLeftC(BiTree T){
@@ -172,7 +172,21 @@ void inOrderTraverse(BiTree T){
 }
 
 void inOrderNoRecur(BiTree T){
-    
+    BiTree stack[MaxSize];    
+    int top = 0;
+    BNode *p = T;
+
+    while(p!=NULL || top>0){
+        while(p != NULL){
+            stack[top++] = p;
+            p = p->lc;
+        }
+        if(top > 0){
+            p = stack[--top];
+            printf("%2c", p->data);
+            p = p->rc;
+        }
+    }
 }
 
 void postOrderTraverse(BiTree T){
@@ -184,5 +198,27 @@ void postOrderTraverse(BiTree T){
 }
 
 void postOrderNoRecur(BiTree T){
+    BiTree stack[MaxSize];
+    int top =0;
+    BNode *p, *q;
+    p = T;
+    q = NULL;
 
+    while(p!=NULL || top>0){
+        while(p!=NULL){
+            stack[top++] = p;
+            p = p->lc;
+        }
+        if(top>0){
+            p = stack[top--];
+            if(p->rc==NULL || p->rc==q){
+                printf("%2c", p->data);
+                q = p;
+                p = NULL;
+                top--;
+            }
+            else
+                p = p->rc;
+        }
+    }
 }

@@ -4,47 +4,37 @@ typedef char ElemType;
 #include <stdio.h>
 #include "LinkBiTree.h"
 
-void fcreateBiTree(BiTree *T, char s[]);
-
 void main(){
     BiTree T, root;
     char bt[MaxSize] = "ABD@G@@EH@@I@@CF@J@@@";
 
     initBiTree(&T);
     puts("Create BiTree by preOrderQueue(end with @)");
-    fcreateBiTree(&T, bt);
+    printf("%s\n", bt);
+    createBiTree(&T);
     printf("It's over\n");
 
     puts("The preOrderQueue:");
     preOrderTraverse(T);
     putchar('\n');
+    puts("The preOrder,NoRecursive:");
+    preOrderNoRecur(T);
+    printf("\n\n");
+
     puts("The inOrderQueue:");
     inOrderTraverse(T);
     putchar('\n');
+    puts("The inOrder,NoRecursive:");
+    inOrderNoRecur(T);
+    printf("\n\n");
+
     puts("The postOrderQueue:");
     postOrderTraverse(T);
     putchar('\n');
+    puts("The preOrder,NoRecursive:");
+    postOrderNoRecur(T);
+    printf("\n\n");
 
     puts("\nDeleting BiTree ...");
     destroyBiTree(&T);
-}
-
-
-void fcreateBiTree(BiTree *T, char s[]){
-    ElemType ch;
-    printf("s = %s\n", s);
-    sscanf(s, "%1c", &ch);
-    puts("sscanf over");
-    if(ch == '@')
-        *T = NULL;
-    else{
-        *T = (BiTree)malloc(sizeof(BNode));
-        if(!(*T))
-            exit(0);
-        (*T)->data = ch;
-        createBiTree(&((*T)->lc));
-        createBiTree(&((*T)->rc));
-        puts("creating...");
-    }
-    puts("fcreate over");
 }

@@ -41,7 +41,7 @@ void initList(LinkList *L){
 
 //1.头插法创建单链表
 LinkList createList(LinkList *L){
-//2 B tested!!!
+//2BT!!!
     LinkList s;
     int x;
 
