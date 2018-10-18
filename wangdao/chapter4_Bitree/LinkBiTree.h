@@ -149,19 +149,19 @@ void preOrderNoRecur(BiTree T){
     BiTree stack[MaxSize];
     //top point at stacktop elem
     int top = -1;
-    //int top = 0;
     //top point at stacktop elem's hat
-    //push: top++
-    //pop:  --top
+    //int top = 0;
+    //push: top++//pop:  --top
+    
     BNode *p = T;
 
     while(p || top>=0){     //is not empty
-        if(p != NULL){
+        while(p){
             printf("%2c", p->data);
             stack[++top] = p;   //2bs
             p = p->lc;
         }
-        else{               //is not empty
+        if(top >= 0){               //is not empty
             p = stack[top--];
             p = p->rc;
         }
@@ -177,19 +177,21 @@ void inOrderTraverse(BiTree T){
 }
 
 void inOrderNoRecur(BiTree T){
-    BiTree stack[MaxSize];    
-    int top = 0;
+    BiTree stack[MaxSize];      //save bnode point
+    int top = 0;    //init
     BNode *p = T;
 
-    while(p || top>0){
-        if(p){
-            stack[top++] = p;
+    while(p || top>0){          //1.recursion end conditon
+        while(p){
+            stack[top++] = p;   //2.push stack with returnV, Actual parameters
             p = p->lc;
+            printf("(i)");
         }
-        else{
-            p = stack[--top];
+        if(top>0){
+            p = stack[--top];   //3.pop stack
             printf("%2c", p->data);
             p = p->rc;
+            printf("(o)");
         }
     }
 }
@@ -210,11 +212,11 @@ void postOrderNoRecur(BiTree T){
     q = NULL;
 
     while(p || top>0){
-        if(p){
+        while(p){
             stack[top++] = p;
             p = p->lc;
         }
-        else{
+        if(top>0){
             p = stack[top-1];
             if(p->rc==NULL || p->rc==q){
                 printf("%2c", p->data);
