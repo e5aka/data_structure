@@ -2,7 +2,7 @@ typedef char ElemType;
 #define MaxSize 30
 
 #include <stdio.h>
-#include "TraverseAPP.h"
+#include "TraverseBT.h"
 
 char bt[MaxSize] = "ABD@G@@EH@@I@@CF@J@@@";
 int con = 0;
@@ -16,11 +16,16 @@ void main(int argc, char *argv[]){
     //createBiTree(&T);
     createBiTree_NR(&T);
     printf("It's over\n\n");
+    
+    puts("Display by tree:");
+    treePrint(T, 1);
 
     puts("LeverOrder display:");
     levelOrder(T);
     printf("\n");
 
-    printf("The BiTree have %d leaves\n", leafNum(T));
-
+    puts("The BiTree have");
+    printf("-- %d leaf nodes\n", leafNum(T));
+    printf("-- %d nonleaf nodes\n", notLeafNum(T));
+    printf("-- %d depth\n", getDepth(T));
 }
