@@ -60,6 +60,24 @@ void createBiTree(BiTree *T){
     }
 }
 
+int con;
+char bt[MaxSize];
+//No need to input
+void createBiTree_NR(BiTree *T){
+    ElemType ch;
+    ch = bt[con++];
+    if(ch == '@')
+        *T = NULL;
+    else{
+        *T = (BiTree)malloc(sizeof(BNode));
+        if(!(*T))
+            exit(0);
+        (*T)->data = ch;
+        createBiTree_NR(&((*T)->lc));
+        createBiTree_NR(&((*T)->rc));
+    }
+}
+
 //c ins into p as LeftC
 bool insLeftC(BiTree p, BiTree c){
     if(p){

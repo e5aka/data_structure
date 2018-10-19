@@ -110,7 +110,7 @@ void translateExp(char str[], char exp[]){
                 break;
             case '+':
             case '-':
-                while(!isEmpty(S) && getTop(S, &e) && e!='('){
+                while(!stackIsEmpty(S) && getTop(S, &e) && e!='('){
                     stackPop(&S, &e);
                     exp[j++] = e;
                 }
@@ -118,7 +118,7 @@ void translateExp(char str[], char exp[]){
                 break;
             case '*':
             case '/':
-                while(!isEmpty(S) && getTop(S, &e) && e=='/' || e=='*'){
+                while(!stackIsEmpty(S) && getTop(S, &e) && e=='/' || e=='*'){
                     stackPop(&S, &e);
                     exp[j++] = e;
                 }
@@ -136,7 +136,7 @@ void translateExp(char str[], char exp[]){
         }
         ch = str[i++];
     }
-    while(!isEmpty(S)){
+    while(!stackIsEmpty(S)){
         stackPop(&S, &e);
         exp[j++] = e;
     }

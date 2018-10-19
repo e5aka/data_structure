@@ -11,7 +11,7 @@ typedef struct QNode{
 typedef struct QNode *SCQueue; 
 
 void initQueue(SqQueue *Q);
-bool isEmpty(SqQueue Q);
+bool isEmptyQ(SqQueue Q);
 bool enQueue(SqQueue *Q, ElemType x);
 bool deQueue(SqQueue *Q, ElemType *x);
 bool getHead(SqQueue Q, ElemType *x);
@@ -20,7 +20,7 @@ void initQueue(SqQueue *Q){
     Q->rear = Q->front = 0;
 }
 
-bool isEmpty(SqQueue Q){
+bool isEmptyQ(SqQueue Q){
     //full queue:(Q.rear+1)%MaxSize == Q.front
     if(Q.rear == Q.front)
         return true;
@@ -36,7 +36,7 @@ bool enQueue(SqQueue *Q, ElemType x){
 }
 
 bool deQueue(SqQueue *Q, ElemType *x){
-    if(isEmpty(*Q))
+    if(isEmptyQ(*Q))
         return false;
     *x = Q->data[Q->front];
     Q->front = (Q->front+1)%MaxSize;
@@ -44,7 +44,7 @@ bool deQueue(SqQueue *Q, ElemType *x){
 }
 
 bool getHead(SqQueue Q, ElemType *x){
-    if(isEmpty(Q))
+    if(isEmptyQ(Q))
         return false;
     *x = Q.data[Q.front];
     return true;

@@ -12,11 +12,11 @@ typedef struct{
 }LinkQueue;
 
 void initQueue(LinkQueue *q);
-bool isEmpty(LinkQueue Q);
+bool isEmptyQ(LinkQueue Q);
 bool enQueue(LinkQueue *q, ElemType e);
 bool deQueue(LinkQueue *q, ElemType *e);
 bool getHead(LinkQueue Q, ElemType *x);
-bool destroy(LinkQueue *Q);
+bool destroyQ(LinkQueue *Q);
 
 //1>.初始化队列
 void initQueue(LinkQueue *q){
@@ -26,7 +26,7 @@ void initQueue(LinkQueue *q){
 }
 
 //2>.判断队空否
-bool isEmpty(LinkQueue Q){
+bool isEmptyQ(LinkQueue Q){
     if(Q.front == Q.rear)
     //if(Q.rear->next == NULL)
         return true;
@@ -49,7 +49,7 @@ bool enQueue(LinkQueue *q, ElemType e){
 //3>.出队操作
 bool deQueue(LinkQueue *q, ElemType *e){
     QueuePtr p;
-    if(isEmpty(*q)) return false;
+    if(isEmptyQ(*q)) return false;
     p = q->front->next;
     *e = p->data;
     q->front->next = p->next;
@@ -60,13 +60,13 @@ bool deQueue(LinkQueue *q, ElemType *e){
 }
 
 bool getHead(LinkQueue Q, ElemType *x){
-    if(isEmpty(Q))
+    if(isEmptyQ(Q))
         return false;
     *x = Q.front->next->data; 
     return true;
 }
 
-bool destroy(LinkQueue *Q){
+bool destroyQ(LinkQueue *Q){
     while(Q->front != NULL){
         Q->rear = Q->front->next;
         free(Q->front);
