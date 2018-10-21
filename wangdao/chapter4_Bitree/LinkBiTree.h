@@ -1,7 +1,6 @@
 //typedef char ElemType;
 //#define MaxSize 20
 
-#include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h> //malloc,free,exit
 
@@ -13,7 +12,7 @@ typedef struct BNode{
 void initBiTree(BiTree *T);
 void destroyBiTree(BiTree *T);
 void createBiTree(BiTree *T);
-void createBiTree_NR(BiTree *T);    //preOrder
+void createBiTree_NR(BiTree *T, ElemType *bt, int *con);//preOrder
 bool insLeftC(BiTree p, BiTree c);
 bool insRightC(BiTree p, BiTree c);
 BNode *point(BiTree T, ElemType e);     //search for specified value node
@@ -61,12 +60,10 @@ void createBiTree(BiTree *T){
     }
 }
 
-int con;
-char bt[MaxSize];
 //No need to input
-void createBiTree_NR(BiTree *T){
+void createBiTree_NR(BiTree *T, ElemType *bt, int *con){
     ElemType ch;
-    ch = bt[con++];
+    ch = bt[(*con)++];
     if(ch == '@')
         *T = NULL;
     else{
@@ -74,8 +71,8 @@ void createBiTree_NR(BiTree *T){
         if(!(*T))
             exit(0);
         (*T)->data = ch;
-        createBiTree_NR(&((*T)->lc));
-        createBiTree_NR(&((*T)->rc));
+        createBiTree_NR(&((*T)->lc), bt, con);
+        createBiTree_NR(&((*T)->rc), bt, con);
     }
 }
 
