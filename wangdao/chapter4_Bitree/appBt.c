@@ -4,17 +4,16 @@ typedef char ElemType;
 #include <stdio.h>
 #include "TraverseBT.h"
 
-char bt[MaxSize] = "ABD@G@@EH@@I@@CF@J@@@";
-int con = 0;
-
 void main(int argc, char *argv[]){
     BiTree T, root;
+    char bt[MaxSize] = "ABD@G@@EH@@I@@CF@J@@@";
+    int con = 0;
 
     initBiTree(&T);
     puts("Create BiTree by preOrderQueue(end with @)");
     printf("%s\n", bt);
     //createBiTree(&T);
-    createBiTree_NR(&T);
+    createBiTree_NR(&T, bt, &con);
     printf("It's over\n\n");
     
     puts("Display by tree:");

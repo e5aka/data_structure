@@ -168,7 +168,6 @@ void preOrderTraverse(BiTree T){
 void preOrder_nr(BiTree T){
     BiTree stack[MaxSize];
     int top = -1;       //top point at stacktop elem
-    
     BNode *p = T;
 
     while(p || top>=0){     //is not empty
@@ -176,10 +175,12 @@ void preOrder_nr(BiTree T){
             printf("%2c", p->data);
             stack[++top] = p;   //2bs
             p = p->lc;
+            printf("i");
         }
         else{               //is not empty
             p = stack[top--];
             p = p->rc;
+            printf("o");
         }
     }
 }
@@ -201,13 +202,11 @@ void inOrder_nr(BiTree T){
         if(p){
             stack[top++] = p;   //2.push stack with returnV, Actual parameters
             p = p->lc;
-            printf("(i)");
         }
         else{
             p = stack[--top];   //3.pop stack
             printf("%2c", p->data);
             p = p->rc;
-            printf("(o)");
         }
     }
 }

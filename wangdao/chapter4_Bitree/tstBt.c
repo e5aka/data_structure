@@ -4,6 +4,13 @@ typedef char ElemType;
 #include <stdio.h>
 #include "LinkBiTree.h"
 
+//            A
+//         /    \
+//        B      C
+//      /   \  /
+//      D   E  F
+//       \ / \  \
+//       G H I  J
 void main(){
     char bt[MaxSize] = "ABD@G@@EH@@I@@CF@J@@@";
     int con = 0;
