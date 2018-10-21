@@ -21,21 +21,21 @@ void main(){
     preOrderTraverse(T);
     putchar('\n');
     puts("The preOrder,NoRecursive:");
-    preOrderNoRecur(T);
+    preOrder_nr(T);
     printf("\n\n");
 
     puts("The inOrderQueue:");
     inOrderTraverse(T);
     putchar('\n');
     puts("The inOrder,NoRecursive:");
-    inOrderNoRecur(T);
+    inOrder_nr(T);
     printf("\n\n");
 
     puts("The postOrderQueue:");
     postOrderTraverse(T);
     putchar('\n');
     puts("The preOrder,NoRecursive:");
-    postOrderNoRecur(T);
+    postOrder_nr(T);
     printf("\n\n");
 
     puts("\nDeleting BiTree ...");
