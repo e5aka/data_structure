@@ -4,6 +4,7 @@ typedef int ElemType;
 #include <stdio.h>
 #include <stdlib.h>
 #include "CSTree.h"
+//The tree
 //               A
 //             / | \
 //            B  C  D

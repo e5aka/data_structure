@@ -47,7 +47,7 @@ void inThread(ThrTree *p, ThrTree *pre){
             (*pre)->rt = 1;
         }
         *pre = *p;
-        inThread(&(*p)->rc, &(*pre));
+        inThread(&(*p)->rc, pre);
     }
 }
 

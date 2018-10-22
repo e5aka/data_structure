@@ -221,7 +221,7 @@ void postOrderTraverse(BiTree T){
 
 void postOrder_nr(BiTree T){
     BiTree stack[MaxSize];
-    int top =0;
+    int top = 0;
     BNode *p, *q;
     p = T;
     q = NULL;
