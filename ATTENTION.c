@@ -2,6 +2,7 @@
 
 int main(){
 
+    9.--i;
     7.rear recurrence;
     8.recurrence use func
     1.Share stack;
