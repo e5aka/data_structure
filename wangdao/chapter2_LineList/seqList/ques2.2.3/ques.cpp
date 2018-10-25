@@ -49,26 +49,74 @@ bool que3_del_x(SqList &S, ElemType x){
     S.length = k;
 }
 
-int main(){
+//Savage Sadistic Sensational
+bool que4_del_sq_range(SqList &S, ElemType s, ElemType t){
+    int i, j;
+    
+    if(s>=t || !S.length)
+        return false;
+
+    for(i=0;i<S.length&&S.data[i]<=s;i++);   //locate first of data>s
+    if(i>S.length)
+        return false;
+    for(j=i;j<S.length&&S.data[j]<t;j++);  //locate t<data
+
+    for(;j<S.length;i++,j++)
+        S.data[i] = S.data[j];
+    //i = 6;
+
+    S.length = i;
+
+    return true;
+}
+
+bool que5_del_nsq_range(SqList &S, ElemType s, ElemType t){
+    int i, j, k;
+
+    if(s>=t || !S.length)
+        return false;
+
+    k=0;
+    for(i=0;i<S.length;i++){
+        if(S.data[i]>=s && S.data[i]<=t)
+            k++; 
+        else
+            S.data[i-k] = S.data[i];    //Sweet
+    }
+
+    S.length-=k;
+
+    return true;
+}
+
+bool que6_del_repeated(SqList &s1, SqList &s2){
+
+
+}
+
+int main(int argc, char *argv[]){
     int i, j, flag;
     ElemType e;
-    SqList A,B;
-    ElemType arr1[] = {3,2,3,3,1,10,7,3,3,6,8};
+    SqList A,B,S;
+    ElemType arr1[] = {1,2,3,4,7,8,11,13,15};
+    ElemType arr2[] = {1,3,5,6,9,2,4,6,8,10};
+    ElemType arr3[] = {1,3,11,12,13};
     
-    initList(&A);
+    initList(&S);
     for(i=1;i<=sizeof(arr1)/sizeof(arr1[0]);i++){
-        if(!insList(&A,i,arr1[i-1])){
+        if(!insList(&S,i,arr1[i-1])){
             printf("插入位置非法");
             return 0;
         }
     }
 
     printf("The origin SeqList:\n");
-    traverseList(A);
+    traverseList(S);
 
-    que3_del_x(A, 3);
+    que5_del_nsq_range(S, 3, 11);
     printf("After function exe:\n");
-    traverseList(A);
+    traverseList(S);
+    printf("Finally the length = %d\n", S.length);
 
     return 1;
 }
