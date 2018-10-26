@@ -6,8 +6,7 @@ typedef int ElemType;
 
 void a_minus_b(SqList *A, SqList B);    //test function
 
-int main()
-{
+int main(int argc, char *argv[]){
     int i, j, flag;
     ElemType e;
     SqList A,B;
