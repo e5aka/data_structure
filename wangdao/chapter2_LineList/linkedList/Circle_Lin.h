@@ -12,7 +12,7 @@ typedef struct Node *LinkList;
 
 bool isEmpty(LinkList L);   //diff
 void initList(LinkList *L); //diff
-LinkList createList(LinkList L);
+LinkList createList(LinkList L);    //err
 LinkList createList2(LinkList *L);
 LinkList createList2_nh(LinkList *L);
 LinkList getElem(LinkList L, int i);

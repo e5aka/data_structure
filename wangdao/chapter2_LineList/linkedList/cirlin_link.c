@@ -39,7 +39,7 @@ void main(){
 
     A = link(A, B);
     puts("The new list is :");
-    traverseList(A->next);
+    traverseList(A);
 }
 
 LinkList link(LinkList A, LinkList B){

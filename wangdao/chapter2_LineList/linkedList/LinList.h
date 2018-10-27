@@ -14,14 +14,15 @@ bool isEmpty(LinkList L);
 void initList(LinkList *L);
 LinkList createList(LinkList *L);
 LinkList createList2(LinkList *L);
+LinkList createList2_nh(LinkList *L);//2bt
 LinkList getElem(LinkList L, int i);
 LinkList locateElem(LinkList L, ElemType e);
 int locatePos(LinkList L, ElemType e);
 void insList(LinkList L, int i, ElemType e);
 void delList(LinkList L, int i, ElemType *e);
 int getLength(LinkList L);
-void destroy(LinkList L);   //not *L ?
-void traverseList(LinkList L);
+void destroy_list(LinkList L);   //not *L ?
+void traverse_list(LinkList L);
 
 //10.判断为空否
 bool isEmpty(LinkList L){
@@ -45,7 +46,7 @@ LinkList createList(LinkList *L){
     LinkList s;
     int x;
 
-    *L = (LNode*)malloc(sizeof(LNode));  //Head Node
+    *L = (LNode*)malloc(sizeof(LNode));  //Create Head Node
     (*L)->next = NULL;
 
     scanf("%d", &x);
@@ -159,7 +160,7 @@ int getLength(LinkList L){
 }
 
 //8.销毁链表
-void destroy(LinkList L){
+void destroy_list(LinkList L){
     LinkList p, q;
     p = L->next;
 
@@ -171,7 +172,7 @@ void destroy(LinkList L){
 }
 
 //9.遍历链表,当ElemType为int时
-void traverseList(LinkList L){
+void traverse_list(LinkList L){
     LinkList p = L->next;
     while(p != NULL){
         printf("%4d", p->data);

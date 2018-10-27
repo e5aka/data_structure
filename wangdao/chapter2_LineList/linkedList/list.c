@@ -4,8 +4,8 @@ typedef int ElemType;
 #include <stdlib.h>
 #include <malloc.h>
 //#include "Circle_Lin.h"
-//#include "LinList.h"
-#include "2Lin.h"
+#include "LinList.h"
+//#include "2Lin.h"
 
 void delElem(LinkList A, LinkList B);
 
@@ -28,15 +28,15 @@ void main(){
     createList2(&B);
 
     printf("A is :");
-    traverseList(A);
+    traverse_list(A);
     printf("B is :");
-    traverseList(B);
+    traverse_list(B);
 
     delElem(A, B);
     printf("After A-B,A仍有%d个元素:", getLength(A));
-    traverseList(A);
+    traverse_list(A);
 
-    destroyList(B);
+    destroy_list(B);
 
     printf("Piece of cake\n");
 }
