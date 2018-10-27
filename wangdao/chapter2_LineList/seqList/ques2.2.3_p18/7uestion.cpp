@@ -157,7 +157,7 @@ int main(int argc, char *argv[]){
     printf("The origin SeqList:\n");
     traverseList(A);
 
-    //
+    //que
     printf("After function exe:\n");
     traverseList(A);
     printf("Finally the length = %d\n", A.length);
